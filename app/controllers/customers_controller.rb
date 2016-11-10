@@ -27,6 +27,7 @@ class CustomersController < ApplicationController
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
+        @provinces = Province.all
         format.html { render :new }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
@@ -41,6 +42,7 @@ class CustomersController < ApplicationController
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
+        @provinces = Province.all
         format.html { render :edit }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
